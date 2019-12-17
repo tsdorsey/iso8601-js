@@ -1,16 +1,16 @@
-export const buildISOStringWithOffset = function(date: Date, offsetTotalMinutes: number) {
-  let offsetMilliseconds = offsetTotalMinutes * 60 * 1000;
-  let offsetMinutes = Math.abs(offsetTotalMinutes) % 60;
-  let offsetHours = Math.floor(Math.abs(offsetTotalMinutes) / 60);
+export const buildISOStringWithOffset = (date: Date, offsetTotalMinutes: number) => {
+  const offsetMilliseconds = offsetTotalMinutes * 60 * 1000;
+  const offsetMinutes = Math.abs(offsetTotalMinutes) % 60;
+  const offsetHours = Math.floor(Math.abs(offsetTotalMinutes) / 60);
 
   let offsetSign = '+';
   if (offsetTotalMinutes > 0) {
     offsetSign = '-';
   }
 
-  let offsetDate = new Date(date.getTime() - offsetMilliseconds);
+  const offsetDate = new Date(date.getTime() - offsetMilliseconds);
 
-  let dateString = [
+  const dateString = [
     `${offsetDate.getFullYear()}`,
     '-',
     `${leftPad(offsetDate.getMonth() + 1, '0', 2)}`,
@@ -33,7 +33,7 @@ export const buildISOStringWithOffset = function(date: Date, offsetTotalMinutes:
   return dateString;
 };
 
-function leftPad(value: any, pad: string, length: number) {
+const leftPad = (value: any, pad: string, length: number) => {
   value = `${value}`;
 
   while (value.length < length && pad.length > 0) {
@@ -41,4 +41,4 @@ function leftPad(value: any, pad: string, length: number) {
   }
 
   return value;
-}
+};

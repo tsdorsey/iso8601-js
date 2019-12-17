@@ -1,8 +1,8 @@
 import { buildISOStringWithOffset } from './calculator';
 
-export const toISOStringWithOffset = function(date?: Date) {
+export const toISOStringWithOffset = (date?: Date) => {
   date = date || new Date();
-  let offsetTotalMinutes = date.getTimezoneOffset();
+  const offsetTotalMinutes = date.getTimezoneOffset();
 
   return buildISOStringWithOffset(date, offsetTotalMinutes);
 };
