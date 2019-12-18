@@ -1,5 +1,5 @@
 {
-  "name": "iso8601",
+  "name": "iso8601-support",
   "version": "0.1.0",
   "description": "A javascript date formatter which outputs iso8601 timestamps with offsets",
   "main": "lib/index.js",
