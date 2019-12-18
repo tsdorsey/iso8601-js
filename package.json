@@ -1,7 +1,7 @@
 {
   "name": "iso8601-support",
   "version": "0.1.0",
-  "description": "A javascript date formatter which outputs iso8601 timestamps with offsets",
+  "description": "Support for more parts of the iso8601 spec than is provided by the Date object",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "files": [
