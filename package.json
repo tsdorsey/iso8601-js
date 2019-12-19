@@ -28,5 +28,20 @@
     "tslint": "^5.20.1",
     "tslint-config-prettier": "^1.18.0",
     "typescript": "^3.7.3"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tsdorsey/iso8601-js.git"
+  },
+  "keywords": [
+    "date",
+    "javascript",
+    "iso8601",
+    "timezone",
+    "offset"
+  ],
+  "bugs": {
+    "url": "https://github.com/tsdorsey/iso8601-js/issues"
+  },
+  "homepage": "https://github.com/tsdorsey/iso8601-js#readme"
 }
