@@ -8,7 +8,10 @@ export const buildISOStringWithOffset = (date: Date, offsetTotalMinutes: number)
     offsetSign = '-';
   }
 
-  const offsetDate = new Date(date.getTime() - offsetMilliseconds);
+  // So we can ignore what timezone javascript is running in, shift the time by the
+  // offset so we can query the UTC values.
+  const shiftedMilliseconds = date.getTime() - offsetMilliseconds;
+  const offsetDate = new Date(shiftedMilliseconds);
 
   const dateString = [
     `${offsetDate.getUTCFullYear()}`,
