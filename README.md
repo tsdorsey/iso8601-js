@@ -75,14 +75,23 @@ npm install iso8601-support
 ## Usage
 
 ```javascript
-import iso8601 from 'iso8601-support';
+import * as iso8601 from 'iso8601-support';
 
-// Passing no argument uses Date.now()
+// Passing no argument uses the current time and local machine offset.
 iso8601.toISOStringWithOffset();
 // '2019-12-18T03:49:38.282-08:00'
 
-iso8601.toISOStringWithOffset(new Date('2018-4-1'));
-// '2018-03-31T17:00:00.000-07:00'
+// Passing a date in will use the local machine offset.
+iso8601.toISOStringWithOffset(new Date('2018-04-01T00:00:00.000Z'));
+// '2018-03-31T17:00:00.000-07:00' (if you're current local offset is UTC-7)
+
+// Passing a date and offset will use that offset instead of the local one.
+iso8601.toISOStringWithOffset(new Date('2018-03-31T23:00:00.000Z'), -120);
+// '2018-04-01T01:00:00.000+02:00'
+
+// Passing just an offset will use the local time with the given offset.
+iso8601.toISOStringWithOffset(undefined, -600);
+// '2020-01-08T05:49:41.428+10:00'
 ```
 
 <!-- ROADMAP -->
