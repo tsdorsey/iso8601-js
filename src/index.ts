@@ -1,10 +1,3 @@
-import { buildISOStringWithOffset } from './calculator';
+import * as Interface from './interface';
 
-export const toISOStringWithOffset = (date?: Date) => {
-  if (date === undefined) {
-    date = new Date();
-  }
-
-  const offsetTotalMinutes = date.getTimezoneOffset();
-  return buildISOStringWithOffset(date, offsetTotalMinutes);
-};
+export const toISOStringWithOffset = Interface.toISOStringWithOffset;
