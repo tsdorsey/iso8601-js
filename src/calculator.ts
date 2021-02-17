@@ -1,3 +1,21 @@
+export const buildISOString = (date: Date) => {
+  return [
+    `${date.getUTCFullYear()}`,
+    '-',
+    `${leftPad(date.getUTCMonth() + 1, '0', 2)}`,
+    '-',
+    `${leftPad(date.getUTCDate(), '0', 2)}`,
+    'T',
+    `${leftPad(date.getUTCHours(), '0', 2)}`,
+    ':',
+    `${leftPad(date.getUTCMinutes(), '0', 2)}`,
+    ':',
+    `${leftPad(date.getUTCSeconds(), '0', 2)}`,
+    '.',
+    `${leftPad(date.getUTCMilliseconds(), '0', 3)}`,
+  ].join('');
+};
+
 export const buildISOStringWithOffset = (date: Date, offsetTotalMinutes: number) => {
   const offsetMilliseconds = offsetTotalMinutes * 60 * 1000;
   const offsetMinutes = Math.abs(offsetTotalMinutes) % 60;
@@ -14,19 +32,7 @@ export const buildISOStringWithOffset = (date: Date, offsetTotalMinutes: number)
   const offsetDate = new Date(shiftedMilliseconds);
 
   const dateString = [
-    `${offsetDate.getUTCFullYear()}`,
-    '-',
-    `${leftPad(offsetDate.getUTCMonth() + 1, '0', 2)}`,
-    '-',
-    `${leftPad(offsetDate.getUTCDate(), '0', 2)}`,
-    'T',
-    `${leftPad(offsetDate.getUTCHours(), '0', 2)}`,
-    ':',
-    `${leftPad(offsetDate.getUTCMinutes(), '0', 2)}`,
-    ':',
-    `${leftPad(offsetDate.getUTCSeconds(), '0', 2)}`,
-    '.',
-    `${leftPad(offsetDate.getUTCMilliseconds(), '0', 3)}`,
+    buildISOString(offsetDate),
     offsetSign,
     leftPad(offsetHours, '0', 2),
     ':',
