@@ -11,3 +11,11 @@ export const toISOStringWithOffset = (date?: Date, offset?: number) => {
 
   return Calculator.buildISOStringWithOffset(date, offset);
 };
+
+export const toISOStringZulu = (date?: Date) => {
+  if (date === undefined) {
+    date = new Date();
+  }
+
+  return Calculator.buildISOString(date) + 'Z';
+};
