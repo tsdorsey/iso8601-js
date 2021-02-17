@@ -1,6 +1,6 @@
 {
   "name": "iso8601-support",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Support for more parts of the iso8601 spec than is provided by the Date object",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
